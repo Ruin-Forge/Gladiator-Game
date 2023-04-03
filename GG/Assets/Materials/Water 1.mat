@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Water
+  m_Name: Water 1
   m_Shader: {fileID: -6465566751694194690, guid: b4ba9be0e19b1264abe3e0d29b7b1728,
     type: 3}
   m_ValidKeywords: []
@@ -87,7 +87,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Surface_Foam_Texture:
-        m_Texture: {fileID: 2800000, guid: 756d6724924f2448ab273c1be1db34c8, type: 3}
+        m_Texture: {fileID: 2800000, guid: cc5a51c92ee9a2a4c81b6118dcf0193f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -121,64 +121,64 @@ Material:
     - _GlossyReflections: 0
     - _HSV_Depth_Color: 0
     - _Hardness: 1
-    - _Horizon_Distance: 24.3
+    - _Horizon_Distance: 5
     - _IF_Blend: 1
-    - _IF_Cutoff: 0.885
+    - _IF_Cutoff: 1
     - _IF_Debth: 1.2
     - _IF_Direction: 0.073
     - _IF_Fade: 1
-    - _IF_Speed: 0.004
-    - _IF_Tiling: 3.7
+    - _IF_Speed: 0.052
+    - _IF_Tiling: 19.4
     - _Metallic: 0
-    - _N_Refracted_Strength: 0
-    - _N_Scale: 0.004
-    - _N_Speed: 0
-    - _N_Strength: 0
-    - _N_UV_Distortion: 0
+    - _N_Refracted_Strength: 2.41
+    - _N_Scale: 0.1416
+    - _N_Speed: 0.1187
+    - _N_Strength: 1
+    - _N_UV_Distortion: 0.113
     - _OcclusionStrength: 1
     - _Parallax: 0.005
-    - _Posterize: 1
+    - _Posterize: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _RGB_Depth_Color: 1
     - _ReceiveShadows: 1
-    - _Refracted_UV: 0
+    - _Refracted_UV: 1
     - _SF_Blend: 1
     - _SF_Direction: 0.064
     - _SF_Distortion: 1.23
     - _SF_Speed: 0.038
     - _SF_Tiling: 9.4
-    - _Smoothness: 0.506
+    - _Smoothness: 0.467
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _Steps: 100
+    - _Steps: 1
     - _Surface: 0
-    - _Transparency: 0
+    - _Transparency: 1
     - _Wave_Length: 2.91
     - _Wave_Speed: 0.515
-    - _Wave_Steepness: 0.098
+    - _Wave_Steepness: 0.201
     - _WorkflowMode: 1
     - _ZWrite: 1
     - _camera_relative_depth: 0
     - _cr_Debth_Fade_Distance: 1
     - _refraction_speed: 0.28
-    - _refraction_strength: 0
-    - _refration_scale: 0.14
+    - _refraction_strength: 0.005
+    - _refration_scale: 0.105
     - _world_space_depth: 1
     - _ws_Debth_Fade_Distance: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Deep_Color: {r: 0.13379, g: 0.37599155, b: 0.78699994, a: 1}
+    - _Deep_Color: {r: 0.01619794, g: 0.06597997, b: 0.26415086, a: 0.92156863}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Horizon_Color: {r: 0.94509804, g: 0, b: 0.515357, a: 0.85882354}
+    - _Horizon_Color: {r: 0.94509804, g: 0.78748316, b: 0, a: 0.85882354}
     - _IFColor: {r: 0.95283014, g: 0.95283014, b: 0.95283014, a: 1}
     - _IF_Offset: {r: 0, g: 0, b: 0, a: 0}
-    - _SF_Color: {r: 0.98039216, g: 0.98039216, b: 0.98039216, a: 0.3764706}
+    - _SF_Color: {r: 0.87602353, g: 0.9622641, b: 0.9579521, a: 0.015686275}
     - _SF_Offset: {r: -0.05, g: -0.33, b: 0, a: 0}
-    - _Shallow_Color: {r: 0, g: 0.83, b: 0.46334943, a: 1}
+    - _Shallow_Color: {r: 0.06666664, g: 1, b: 0.5717701, a: 0.5058824}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _Specular_Color: {r: 0.9811321, g: 0.94586533, b: 0.89320046, a: 0}
+    - _Specular_Color: {r: 0.9811321, g: 0.9458654, b: 0.89320046, a: 0.7019608}
     - _Wave_Directions: {r: 1, g: 1.49, b: 1.95, a: 0.25}
   m_BuildTextureStacks: []

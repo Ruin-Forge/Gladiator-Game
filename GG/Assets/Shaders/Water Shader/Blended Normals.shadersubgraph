@@ -1484,7 +1484,7 @@
         "tex2d"
     ],
     "m_Precision": 0,
-    "m_PreviewExpanded": false,
+    "m_PreviewExpanded": true,
     "m_PreviewMode": 0,
     "m_CustomColors": {
         "m_SerializableColors": [
@@ -2206,7 +2206,7 @@
         "HLSL"
     ],
     "m_Precision": 0,
-    "m_PreviewExpanded": false,
+    "m_PreviewExpanded": true,
     "m_PreviewMode": 0,
     "m_CustomColors": {
         "m_SerializableColors": [
@@ -2543,10 +2543,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -78.99995422363281,
-            "y": -330.9999694824219,
-            "width": 163.99993896484376,
-            "height": 189.99996948242188
+            "x": -83.0000228881836,
+            "y": -331.0,
+            "width": 207.99998474121095,
+            "height": 374.0
         }
     },
     "m_Slots": [
