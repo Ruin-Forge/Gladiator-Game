@@ -1,33 +1,24 @@
 {
-    "name": "MarketInputActions",
+    "name": "ThirdPersonAA",
     "maps": [
         {
             "name": "Player",
-            "id": "54eabce6-4b5a-4e91-9bbb-170decae41f2",
+            "id": "00d86132-7289-47d8-88e7-fc682a79a080",
             "actions": [
                 {
                     "name": "Movement",
                     "type": "Value",
-                    "id": "a537a716-709f-45e7-bfd3-e709ebf3ac91",
+                    "id": "8f903547-2776-4158-9c6c-4ae09912b952",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Interact",
-                    "type": "Button",
-                    "id": "b80be202-df1d-47ea-858e-dca747878f0b",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Pause",
-                    "type": "Button",
-                    "id": "7e3fd4a2-7e35-42dd-8c92-6a87f7cf6523",
-                    "expectedControlType": "Button",
+                    "name": "Look",
+                    "type": "PassThrough",
+                    "id": "ff48d27b-af7e-47d3-aed2-ec9b97096515",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -35,8 +26,19 @@
             ],
             "bindings": [
                 {
+                    "name": "",
+                    "id": "aa4b041d-13ef-4631-82ea-a3f46e6ba1ae",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
                     "name": "WASD",
-                    "id": "7f9315d8-accb-4561-84f1-59bd7df66790",
+                    "id": "08bda8a5-90a5-42d6-9503-be73e7cb6c5b",
                     "path": "2DVector",
                     "interactions": "",
                     "processors": "",
@@ -47,7 +49,7 @@
                 },
                 {
                     "name": "up",
-                    "id": "a6be92aa-de01-43d1-ba8c-5ae5bb4c7d1f",
+                    "id": "9182173c-8148-41a5-8314-b16954fab328",
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
@@ -58,7 +60,7 @@
                 },
                 {
                     "name": "down",
-                    "id": "9704dc91-ad5d-4af4-b034-b2cb4418a27e",
+                    "id": "8dadc886-5914-42bb-b83b-28865c8baebb",
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
@@ -69,7 +71,7 @@
                 },
                 {
                     "name": "left",
-                    "id": "07e493e6-9b73-4f00-989a-7444e0ae6388",
+                    "id": "a0dc294f-2fe4-4b99-8fa7-52416af634b6",
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
@@ -80,7 +82,7 @@
                 },
                 {
                     "name": "right",
-                    "id": "5b795ab9-3d98-4113-ba1c-a041f466a1ee",
+                    "id": "f7913c7c-8f2f-42b1-b7e7-f3ba0fac6e34",
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
@@ -91,56 +93,23 @@
                 },
                 {
                     "name": "",
-                    "id": "1d08654c-03c4-4fd6-bc92-12ee1958d598",
-                    "path": "<Gamepad>/leftStick",
+                    "id": "41fc5ec5-5dfc-454f-a3c6-61cf3f0460d2",
+                    "path": "<SwitchProControllerHID>/rightStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Movement",
+                    "action": "Look",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "e799a592-9d1d-4d00-9f8d-d254bc0d84dd",
-                    "path": "<Keyboard>/f",
+                    "id": "782915a1-62d7-4920-ab5a-864744156d7a",
+                    "path": "<Mouse>/delta",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Interact",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "0036a4b2-56f2-475f-9e41-64e3c48c0795",
-                    "path": "<Gamepad>/buttonEast",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Interact",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "50f619da-410c-4b78-9b26-7986cf26d7cb",
-                    "path": "<Keyboard>/escape",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Pause",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "d6b34847-64ce-4b53-9141-035168244796",
-                    "path": "<Gamepad>/start",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Pause",
+                    "action": "Look",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
