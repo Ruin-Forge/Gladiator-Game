@@ -1,13 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class ThirdPersonController : MonoBehaviour
 {
-    //inout fields
+    //input fields
     private ThirdPersonAA playerAA;
     private InputAction move;
 
@@ -17,6 +16,9 @@ public class ThirdPersonController : MonoBehaviour
     private float movementForce = 1f;
     [SerializeField]
     private float maxSpeed = 5f;
+    [SerializeField]
+    private float turnTime = 1f;
+    private float turnVelocity;
     private Vector3 forceDirection = Vector3.zero;
 
     [SerializeField]
@@ -73,13 +75,21 @@ public class ThirdPersonController : MonoBehaviour
         return right.normalized;
     }
 
+    /// <summary>
+    /// controlls where the Player Character is looking at
+    /// </summary>
     private void LookAt()
     {
         Vector3 direction = rb.velocity;
         direction.y = 0f;
 
         if (move.ReadValue<Vector2>().sqrMagnitude > 0.1f && direction.sqrMagnitude > 0.1f)
-            rb.rotation = Quaternion.LookRotation(direction, Vector3.up);
+        {
+            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
+            float lookAtAngle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnVelocity, turnTime);
+            rb.rotation = Quaternion.Euler(0f, lookAtAngle, 0f);
+            //rb.rotation = Quaternion.LookRotation(direction, Vector3.up);
+        }
         else
             rb.angularVelocity = Vector3.zero;
     }
