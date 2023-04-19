@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
 public class ThirdPersonController : MonoBehaviour
 {
     //input fields
@@ -23,6 +24,8 @@ public class ThirdPersonController : MonoBehaviour
 
     [SerializeField]
     private Camera cam;
+
+
 
     //Initialization
     private void Awake()
@@ -77,6 +80,7 @@ public class ThirdPersonController : MonoBehaviour
 
     /// <summary>
     /// controlls where the Player Character is looking at
+    /// and is also smoothing between the lookAt directions
     /// </summary>
     private void LookAt()
     {
