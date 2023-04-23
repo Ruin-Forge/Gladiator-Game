@@ -92,21 +92,25 @@ public class ScreeenSpaceOutlines : ScriptableRendererFeature
     }
     private class ScreenSpaceOutlinesPass : ScriptableRenderPass
     {
+        //SSOP fields
         [SerializeField]
         private ViewSpaceNormalsTextureSettings viewSpaceNormalsTextureSettings;
 
         private readonly Material screenSpaceOutlineMaterial;
         private RenderTargetIdentifier cameraColorTarget;
+        private RenderTargetIdentifier temporaryBuffer;
+        private int temporaryBufferID = Shader.PropertyToID("_TemporaryBuffer");
+
 
         public ScreenSpaceOutlinesPass(RenderPassEvent renderPassEvent)
         {
             this.renderPassEvent = renderPassEvent;
-            //screenSpaceOutlineMaterial = new Material(Shader.Find("Hidden/OutlineShader"));
+           // screenSpaceOutlineMaterial = new Material(Shader.Find("Shader Graphs/OutlineShader"));
         }
 
         public override void OnCameraSetup(CommandBuffer cmd, ref RenderingData renderingData)
         {
-
+            temporaryBuffer = new RenderTargetIdentifier(temporaryBufferID);
         }
 
         public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
@@ -114,17 +118,19 @@ public class ScreeenSpaceOutlines : ScriptableRendererFeature
             if (!screenSpaceOutlineMaterial)
                 return;
 
-
             CommandBuffer cmd = CommandBufferPool.Get();
             using (new ProfilingScope(cmd, new ProfilingSampler("ScreenSpaceOutlines")))
             {
-                Blit(cmd, cameraColorTarget, cameraColorTarget, screenSpaceOutlineMaterial);
+                Blit(cmd, cameraColorTarget, temporaryBuffer);
+                Blit(cmd, temporaryBuffer, cameraColorTarget, screenSpaceOutlineMaterial);
             }
 
             context.ExecuteCommandBuffer(cmd);
             CommandBufferPool.Release(cmd);
         }
     }
+
+
 
     #region ScreenSpaceOutlines variables and methods
     //variables
