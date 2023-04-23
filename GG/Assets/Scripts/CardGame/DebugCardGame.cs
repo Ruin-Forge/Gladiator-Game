@@ -19,9 +19,8 @@ public class DebugCardGame : MonoBehaviour
 
     public void SpawnDie()
     {
-        if (die == null)
-            die = DieObject.Instanciate(new DieInfo(6), new Vector2(0, 0));
-
-        die.Roll();
+        int[] dice = new int[] { 4, 6, 8, 12, 20 };
+        float position = index * delta;
+        die = DieObject.Instanciate(new DieInfo(dice[Random.Range(0, dice.Length)]), new Vector2(0, 0));
     }
 }

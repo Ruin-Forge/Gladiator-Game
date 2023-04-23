@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class DieObject : MonoBehaviour
+public class DieObject : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler
 {
     #region Fields
 
@@ -64,5 +65,15 @@ public class DieObject : MonoBehaviour
     public void Roll()
     {
         rollAmount = Random.Range(300, 501);
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        Roll();
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        Debug.Log($"{dieInfo.Sides.Length}");
     }
 }

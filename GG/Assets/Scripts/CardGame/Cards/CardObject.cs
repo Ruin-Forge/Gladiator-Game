@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class CardObject : MonoBehaviour
+public class CardObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     #region Fields
 
@@ -15,6 +16,8 @@ public class CardObject : MonoBehaviour
     private Image imageUI;
     private Text nameUI;
     private Text descriptionUI;
+
+    private Vector2 dragOffset;
 
     #endregion Fields
 
@@ -67,4 +70,32 @@ public class CardObject : MonoBehaviour
     }
 
     #endregion Main-Loop
+
+    #region Drag
+
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        dragOffset = (Vector2)transform.position - eventData.position;
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        //Move GameObject
+        transform.position = eventData.position + dragOffset;
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        //Snap GameObject back in bounds if outside
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+    }
+
+    #endregion Drag
 }
