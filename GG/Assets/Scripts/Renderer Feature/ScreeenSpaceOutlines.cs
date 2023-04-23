@@ -50,7 +50,7 @@ public class ScreeenSpaceOutlines : ScriptableRendererFeature
 
         public override void Configure(CommandBuffer cmd, RenderTextureDescriptor cameraTextureDescriptor)
         {
-            //base.Configure(cmd, cameraTextureDescriptor);
+            base.Configure(cmd, cameraTextureDescriptor);
 
             //normals Texture Descriptor setup
             RenderTextureDescriptor normalsTextureDescriptor = cameraTextureDescriptor;
@@ -64,8 +64,8 @@ public class ScreeenSpaceOutlines : ScriptableRendererFeature
 
         public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
         {
-            /*if (!normalsMaterial)
-                return;*/
+            if (!normalsMaterial)
+                return;
 
 
             CommandBuffer cmd = CommandBufferPool.Get();
@@ -84,8 +84,7 @@ public class ScreeenSpaceOutlines : ScriptableRendererFeature
 
         public override void OnCameraCleanup(CommandBuffer cmd)
         {
-            // base.OnCameraCleanup(cmd);
-
+            base.OnCameraCleanup(cmd);
             cmd.ReleaseTemporaryRT(normals.id);
         }
 
@@ -101,16 +100,17 @@ public class ScreeenSpaceOutlines : ScriptableRendererFeature
         private RenderTargetIdentifier temporaryBuffer;
         private int temporaryBufferID = Shader.PropertyToID("_TemporaryBuffer");
 
-
         public ScreenSpaceOutlinesPass(RenderPassEvent renderPassEvent)
         {
             this.renderPassEvent = renderPassEvent;
-           // screenSpaceOutlineMaterial = new Material(Shader.Find("Shader Graphs/OutlineShader"));
+            screenSpaceOutlineMaterial = new Material(Shader.Find("Shader Graphs/OutlineShader"));
         }
 
         public override void OnCameraSetup(CommandBuffer cmd, ref RenderingData renderingData)
         {
-            temporaryBuffer = new RenderTargetIdentifier(temporaryBufferID);
+            cameraColorTarget = renderingData.cameraData.renderer.cameraColorTarget;
+            temporaryBuffer = renderingData.cameraData.renderer.cameraColorTarget;
+
         }
 
         public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
@@ -128,6 +128,13 @@ public class ScreeenSpaceOutlines : ScriptableRendererFeature
             context.ExecuteCommandBuffer(cmd);
             CommandBufferPool.Release(cmd);
         }
+
+        public override void OnCameraCleanup(CommandBuffer cmd)
+        {
+            base.OnCameraCleanup(cmd);
+            cmd.ReleaseTemporaryRT(temporaryBufferID);
+        }
+
     }
 
 
@@ -138,13 +145,7 @@ public class ScreeenSpaceOutlines : ScriptableRendererFeature
     private RenderPassEvent renderPassEvent;
     [SerializeField]
     private LayerMask outlinesLayerMask;
-    public ViewSpaceNormalsTextureSettings viewSpaceNormalsTextureSettings = new ViewSpaceNormalsTextureSettings
-    {
-        colorFormat = RenderTextureFormat.ARGB32,
-        depthBufferBits = 0,
-        filterMode = FilterMode.Point,
-        backgroundColor = Color.black
-    };
+    public ViewSpaceNormalsTextureSettings viewSpaceNormalsTextureSettings = new ViewSpaceNormalsTextureSettings();
     private ViewSpaceNormalsTexturePass viewSpaceNormalsTexturePass;
     private ScreenSpaceOutlinesPass screenSpaceOutlinesPass;
 
