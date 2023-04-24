@@ -12,17 +12,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f62c9c65cf3354c93be831c8bc075510, type: 3}
   m_Name: SSAO
   m_EditorClassIdentifier: 
-  m_Active: 0
+  m_Active: 1
   m_Shader: {fileID: 4800000, guid: 0849e84e3d62649e8882e9d6f056a017, type: 3}
   m_Settings:
     Downsample: 0
     AfterOpaque: 0
-    Source: 1
+    Source: 0
     NormalSamples: 2
     Intensity: 1
-    DirectLightingStrength: 0.25
+    DirectLightingStrength: 0.221
     Radius: 0.2
     SampleCount: 10
+--- !u!114 &-108690221033744892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b3a58d9887c26b42b074f8a7563fb93, type: 3}
+  m_Name: ScreeenSpaceOutlines
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  renderPassEvent: 300
+  outlinesLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  viewSpaceNormalsTextureSettings:
+    colorFormat: 10
+    depthBufferBits: 64
+    filterMode: 0
+    backgroundColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41,8 +63,8 @@ MonoBehaviour:
   m_RendererFeatures:
   - {fileID: -1878332245247344467}
   - {fileID: 6956108007526099752}
-  - {fileID: 5875305966091116396}
-  m_RendererFeatureMap: adc0de57c6d2eee528ebd7b7600f89606c1f98bfa5478951
+  - {fileID: -108690221033744892}
+  m_RendererFeatureMap: adc0de57c6d2eee528ebd7b7600f89600496b9e0d1da7dfe
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
@@ -83,28 +105,6 @@ MonoBehaviour:
   m_ClusteredRendering: 0
   m_TileSize: 32
   m_IntermediateTextureMode: 1
---- !u!114 &5875305966091116396
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b3a58d9887c26b42b074f8a7563fb93, type: 3}
-  m_Name: ScreeenSpaceOutlines
-  m_EditorClassIdentifier: 
-  m_Active: 1
-  renderPassEvent: 300
-  outlinesLayerMask:
-    serializedVersion: 2
-    m_Bits: 64
-  viewSpaceNormalsTextureSettings:
-    colorFormat: 7
-    depthBufferBits: 64
-    filterMode: 0
-    backgroundColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!114 &6956108007526099752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,4 +120,4 @@ MonoBehaviour:
   m_Active: 0
   settings:
     renderPassEvent: 550
-    screenHeight: 1504
+    screenHeight: 982
