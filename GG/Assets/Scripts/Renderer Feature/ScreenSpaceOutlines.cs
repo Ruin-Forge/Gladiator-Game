@@ -2,9 +2,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
-using static ScreeenSpaceOutlines;
+using static ScreenSpaceOutlines;
 
-public class ScreeenSpaceOutlines : ScriptableRendererFeature
+public class ScreenSpaceOutlines : ScriptableRendererFeature
 {
     [System.Serializable]
     public class ViewSpaceNormalsTextureSettings
@@ -38,7 +38,6 @@ public class ScreeenSpaceOutlines : ScriptableRendererFeature
                 new ShaderTagId("UniversalForwardOnly"),
                 new ShaderTagId("LightweightForward"),
                 new ShaderTagId("SRPDefaultUnlit"),
-                new ShaderTagId("URP")
             };
 
             this.renderPassEvent = renderPassEvent;
@@ -89,6 +88,9 @@ public class ScreeenSpaceOutlines : ScriptableRendererFeature
         }
 
     }
+
+ 
+
     private class ScreenSpaceOutlinesPass : ScriptableRenderPass
     {
         //SSOP fields
@@ -121,8 +123,8 @@ public class ScreeenSpaceOutlines : ScriptableRendererFeature
             CommandBuffer cmd = CommandBufferPool.Get();
             using (new ProfilingScope(cmd, new ProfilingSampler("ScreenSpaceOutlines")))
             {
-                Blit(cmd, cameraColorTarget, temporaryBuffer);
-                Blit(cmd, temporaryBuffer, cameraColorTarget, screenSpaceOutlineMaterial);
+                Blit(cmd, cameraColorTarget, temporaryBuffer, screenSpaceOutlineMaterial);
+                Blit(cmd, temporaryBuffer, cameraColorTarget);
             }
 
             context.ExecuteCommandBuffer(cmd);
