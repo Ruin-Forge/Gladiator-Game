@@ -18,7 +18,7 @@ public class DieObject : MonoBehaviour, IPointerClickHandler, IPointerEnterHandl
 
     #endregion Fields
 
-    public static DieObject Instanciate(DieInfo dieInfo, Vector2 position)
+    public static DieObject Instantiate(DieInfo dieInfo, Vector2 position)
     {
         if (dieInfo == null)
             return null;
@@ -74,6 +74,5 @@ public class DieObject : MonoBehaviour, IPointerClickHandler, IPointerEnterHandl
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log($"{dieInfo.Sides.Length}");
     }
 }

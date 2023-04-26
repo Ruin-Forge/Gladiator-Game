@@ -9,6 +9,7 @@ public class CardObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     #region Fields
 
     private static GameObject cardPrefab;
+    private static CardObject hoveredCard = null;
 
     private CardInfo cardInfo = new CardInfo();
 
@@ -17,11 +18,12 @@ public class CardObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     private Text nameUI;
     private Text descriptionUI;
 
+    private bool draging = false;
     private Vector2 dragOffset;
 
     #endregion Fields
 
-    public static CardObject Instanciate(CardInfo cardInfo, Vector2 position)
+    public static CardObject Instantiate(CardInfo cardInfo, Vector2 position)
     {
         if (cardInfo == null)
             return null;
@@ -37,6 +39,16 @@ public class CardObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
         return card;
     }
+
+    #region Properties
+
+    public CardInfo Info => cardInfo;
+    public bool Hovered => this == hoveredCard;
+    public bool Draging => draging;
+
+    public static CardObject HoveredCard => hoveredCard;
+
+    #endregion Properties
 
     #region Main-Loop
 
@@ -61,20 +73,40 @@ public class CardObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     // Update is called once per frame
     private void Update()
     {
+        updateCardUI();
     }
 
     private void updateCardUI()
     {
         nameUI.text = cardInfo.Name;
-        descriptionUI.text = cardInfo.Group.ToString();
+        descriptionUI.text =
+            $"Group: {cardInfo.Group}\n" +
+            $"Hovered: {Hovered}\n" +
+            $"Draging: {Draging}";
     }
 
     #endregion Main-Loop
+
+    #region Hover
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        hoveredCard = this;
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (Hovered)
+            hoveredCard = null;
+    }
+
+    #endregion Hover
 
     #region Drag
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        draging = true;
         dragOffset = (Vector2)transform.position - eventData.position;
     }
 
@@ -86,15 +118,8 @@ public class CardObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        draging = false;
         //Snap GameObject back in bounds if outside
-    }
-
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
     }
 
     #endregion Drag
