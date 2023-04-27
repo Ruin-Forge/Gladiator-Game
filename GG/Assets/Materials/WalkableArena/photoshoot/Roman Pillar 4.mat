@@ -132,7 +132,7 @@ Material:
     - _Ambient_Color: {r: 0.7098039, g: 0.7098039, b: 0.7098039, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _DiffuseColor: {r: 0.6698113, g: 0.3272536, b: 0.28751335, a: 0}
+    - _DiffuseColor: {r: 1, g: 0.10204081, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Main_Color: {r: 0.2, g: 0.21176471, b: 0.21960784, a: 0}
     - _RimColor: {r: 14.25947, g: 14.25947, b: 14.25947, a: 0}
