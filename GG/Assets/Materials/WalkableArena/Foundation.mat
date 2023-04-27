@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-3945520979762314506
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 5
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -20,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Arena Water
-  m_Shader: {fileID: -6465566751694194690, guid: b4ba9be0e19b1264abe3e0d29b7b1728,
+  m_Name: Foundation
+  m_Shader: {fileID: -6465566751694194690, guid: 2753d56cee62e1e4c815b7d92a3a0328,
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -29,7 +16,8 @@ Material:
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
-  stringTagMap: {}
+  stringTagMap:
+    RenderType: Opaque
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -58,20 +46,16 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Intersection_Foam_Texture:
-        m_Texture: {fileID: 2800000, guid: 716010ae70e1b4e84ba6baf439991fae, type: 3}
+    - _MainTex:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _MainTex:
+    - _Main_Texture:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Normals_Texture:
-        m_Texture: {fileID: 2800000, guid: ead3be67941d84de8806e2bdbc4a2d24, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -82,12 +66,16 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _SpecGlossMap:
-        m_Texture: {fileID: 0}
+    - _RampTexture:
+        m_Texture: {fileID: 2800000, guid: a1a4108227a8a8b4f9067f80f37c33ec, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Surface_Foam_Texture:
-        m_Texture: {fileID: 2800000, guid: cc5a51c92ee9a2a4c81b6118dcf0193f, type: 3}
+    - _Shading_Ramp_Broken:
+        m_Texture: {fileID: 2800000, guid: 8d2315bafd5837444b2cc18a4da0936f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SpecGlossMap:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -105,9 +93,10 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaClip: 0
+    - _AlphaClipThreshold: 0.5
     - _Blend: 0
-    - _Blended_UV: 0
     - _BumpScale: 1
+    - _CastShadows: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
     - _Cull: 2
@@ -119,66 +108,48 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _HSV_Depth_Color: 0
-    - _Hardness: 1
-    - _Horizon_Distance: 1.8
-    - _IF_Blend: 1
-    - _IF_Cutoff: 1
-    - _IF_Debth: 1.2
-    - _IF_Direction: 0.073
-    - _IF_Fade: 1
-    - _IF_Speed: 0.052
-    - _IF_Tiling: 19.4
     - _Metallic: 0
-    - _N_Refracted_Strength: 2.41
-    - _N_Scale: 0.1416
-    - _N_Speed: 0.1187
-    - _N_Strength: 1
-    - _N_UV_Distortion: 0.113
     - _OcclusionStrength: 1
     - _Parallax: 0.005
-    - _Posterize: 0
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _RGB_Depth_Color: 1
     - _ReceiveShadows: 1
-    - _Refracted_UV: 1
-    - _SF_Blend: 1
-    - _SF_Direction: 0.064
-    - _SF_Distortion: 1.23
-    - _SF_Speed: 0.038
-    - _SF_Tiling: 9.4
-    - _Smoothness: 0.467
+    - _Rim_Amount: 0.7
+    - _Rim_Smoothness: 0.01
+    - _Rim_Threshhold: 0.1
+    - _SPECULAR: 0
+    - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
+    - _Specular_Smoothness: 0.1
     - _SrcBlend: 1
-    - _Steps: 1
     - _Surface: 0
-    - _Transparency: 1
-    - _Wave_Length: 1.4
-    - _Wave_Speed: 0.226
-    - _Wave_Steepness: 0.262
     - _WorkflowMode: 1
+    - _ZTest: 4
     - _ZWrite: 1
-    - _camera_relative_depth: 0
-    - _cr_Debth_Fade_Distance: 1
-    - _refraction_speed: 0.28
-    - _refraction_strength: 0.005
-    - _refration_scale: 0.105
-    - _world_space_depth: 1
-    - _ws_Debth_Fade_Distance: 1
+    - _ZWriteControl: 0
     m_Colors:
+    - _Ambient_Color: {r: 0.7098039, g: 0.7098039, b: 0.7098039, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Deep_Color: {r: 0.01619794, g: 0.06597997, b: 0.26415086, a: 0.92156863}
+    - _DiffuseColor: {r: 0.13207549, g: 0.12522252, b: 0.12549935, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Horizon_Color: {r: 0.94509804, g: 0.78748316, b: 0, a: 0.85882354}
-    - _IFColor: {r: 0.95283014, g: 0.95283014, b: 0.95283014, a: 1}
-    - _IF_Offset: {r: 0, g: 0, b: 0, a: 0}
-    - _SF_Color: {r: 0.87602353, g: 0.9622641, b: 0.9579521, a: 0.015686275}
-    - _SF_Offset: {r: -0.05, g: -0.33, b: 0, a: 0}
-    - _Shallow_Color: {r: 0.06666666, g: 1, b: 0.73034185, a: 0.5058824}
+    - _Main_Color: {r: 0.2, g: 0.21176471, b: 0.21960784, a: 0}
+    - _RimColor: {r: 14.25947, g: 14.25947, b: 14.25947, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _Specular_Color: {r: 0.9811321, g: 0.9458654, b: 0.89320046, a: 0.7019608}
-    - _Wave_Directions: {r: 0.68, g: -1.81, b: 2.88, a: 0.25}
+    - _SpecularColour: {r: 1, g: 1, b: 1, a: 0}
+    - _Specular_Color: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []
+--- !u!114 &3959595201678925336
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 5
