@@ -10,8 +10,7 @@ Material:
   m_Name: Arena Bow
   m_Shader: {fileID: -6465566751694194690, guid: 2753d56cee62e1e4c815b7d92a3a0328,
     type: 3}
-  m_ValidKeywords:
-  - _SPECULAR_ON
+  m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -118,7 +117,7 @@ Material:
     - _Rim_Amount: 0.7
     - _Rim_Smoothness: 0.01
     - _Rim_Threshhold: 0.1
-    - _SPECULAR: 1
+    - _SPECULAR: 0
     - _Smoothness: 0.05
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
