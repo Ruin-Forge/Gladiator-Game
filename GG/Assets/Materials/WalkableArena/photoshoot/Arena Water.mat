@@ -121,7 +121,7 @@ Material:
     - _GlossyReflections: 0
     - _HSV_Depth_Color: 0
     - _Hardness: 1
-    - _Horizon_Distance: 5.9
+    - _Horizon_Distance: 19.3
     - _IF_Blend: 1
     - _IF_Cutoff: 1
     - _IF_Debth: 1.2
