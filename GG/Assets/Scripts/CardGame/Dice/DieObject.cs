@@ -12,11 +12,19 @@ public class DieObject : MonoBehaviour, IPointerClickHandler, IPointerEnterHandl
 
     private DieInfo dieInfo;
     private int rollAmount = 0;
+    private bool selected = false;
 
     private Image backgroundUI;
     private Text valueUI;
 
     #endregion Fields
+
+    #region Properties
+
+    public DieInfo Info => dieInfo;
+    public bool Selected => selected;
+
+    #endregion Properties
 
     public static DieObject Instantiate(DieInfo dieInfo, Vector2 position)
     {
@@ -57,6 +65,11 @@ public class DieObject : MonoBehaviour, IPointerClickHandler, IPointerEnterHandl
             rollAmount--;
         }
 
+        if (Selected)
+            valueUI.color = Color.red;
+        else
+            valueUI.color = Color.black;
+
         valueUI.text = dieInfo.Value.ToString();
     }
 
@@ -64,15 +77,20 @@ public class DieObject : MonoBehaviour, IPointerClickHandler, IPointerEnterHandl
 
     public void Roll()
     {
-        rollAmount = Random.Range(300, 501);
+        rollAmount = Random.Range(100, 201);
     }
+
+    #region Pointer
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        Roll();
+        if (rollAmount < 1)
+            selected = !selected;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
     }
+
+    #endregion Pointer
 }

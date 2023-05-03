@@ -12,6 +12,7 @@ public class CardObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     private static CardObject hoveredCard = null;
 
     private CardInfo cardInfo = new CardInfo();
+    private CardCollection collection = null;
 
     private Image backgroundUI;
     private Image imageUI;
@@ -43,6 +44,7 @@ public class CardObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     #region Properties
 
     public CardInfo Info => cardInfo;
+    public CardCollection Collection { get => collection; set => collection = value; }
     public bool Hovered => this == hoveredCard;
     public bool Draging => draging;
 
@@ -81,11 +83,16 @@ public class CardObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         nameUI.text = cardInfo.Name;
         descriptionUI.text =
             $"Group: {cardInfo.Group}\n" +
-            $"Hovered: {Hovered}\n" +
-            $"Draging: {Draging}";
+            $"Effect: {cardInfo.Effect.Type} = {cardInfo.Effect.Power}";
+
+        if (collection != null)
+            descriptionUI.text += $"\n" +
+                $"Collection: {collection.gameObject.name} (?/{collection.Count})";
     }
 
     #endregion Main-Loop
+
+    #region Pointer
 
     #region Hover
 
@@ -123,4 +130,6 @@ public class CardObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     }
 
     #endregion Drag
+
+    #endregion Pointer
 }

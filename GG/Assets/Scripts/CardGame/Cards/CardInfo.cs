@@ -5,7 +5,7 @@ using UnityEngine;
 
 public enum CardGroup
 {
-    None, Health, Item, Sword, Shield
+    None, Health, Item, Weapon, Shield, Armor
 }
 
 public class CardInfo
